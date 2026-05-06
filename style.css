@@ -1,0 +1,43 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.bg{
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('g.png') center/cover no-repeat;
+}
+.title{
+    position: relative;
+    top: 40px;
+    left: 100px;
+}
+.h1{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.links{
+    margin-top: 10px;
+    margin-left: 35%;
+}
+a{
+    text-decoration: none;
+    color: black;
+    display:inline-block;
+    font-size: 20px;
+     margin-left: 20px;
+}
+.login-btn{
+    position: relative;
+    top: -25px;
+    left: 90%;
+}
+.log-btn{
+    border-radius: 5px;
+    border: none;
+    background-color: gray;
+    color: white;
+    font-size: 20px;
+}
+.search{
+    
+}
