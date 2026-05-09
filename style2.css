@@ -1,0 +1,623 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    z-index: 10;
+    box-sizing: border-box;
+     background: rgba(255, 255, 255, 0.49);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.h1{
+    font-family: "Cossette Texte", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    color: black;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+.links{
+    display: flex;
+    gap: 40px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+    font-family: "Cossette Texte", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    padding: 10px;
+       transition: color 0.3s ease;
+     cursor: pointer;
+}
+a:hover{
+    color: yellow;
+      transition: color 0.3s ease;
+}
+.log-btn{
+    border-radius: 5px;
+    border: none;
+    background-color: gray;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.log-btn:hover{
+    background-color: rgb(42, 41, 41);
+     transition: 0.3s ease;
+
+}
+
+
+header {
+    background: #111;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.container {
+    max-height: 1200px;
+     max-width: 1000px; 
+    margin: auto;
+     padding: 100px 20px; 
+    text-align: center;
+}
+.container-about{
+    padding-top: 100px;
+    background-color: aliceblue;   
+}
+.container-about h1{
+    text-align: center;
+    font-family: "Ramabhadra", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+     animation: fade 0.5s ease;
+}
+@keyframes fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.container-caro{
+    background-color: wheat;
+}
+
+.img-about{
+    position: relative;
+    left: 100px;
+    border-radius: 10px;
+    border: none;
+     filter: drop-shadow(3px 3px 2px #555);
+     transition: all 0.3s ease;
+     cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0px);}
+}
+.img-about:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(5px 5px 10px #555);
+    transition: all 0.3s ease;
+      cursor: pointer;
+}
+.description {
+    position: relative;
+    left: 700px;
+    top:-290px;
+    font-family: "Cossette Texte", sans-serif;
+    font-size: 15px;
+    text-align: justify;
+    margin-top: 20px;
+    line-height: 1.6;
+      max-width: 400px;
+       animation: fadeInR 0.5s ease-in-out;
+}
+@keyframes fadeInR {
+    from { opacity: 0%; transform: translateX(20px);}
+    to{ opacity: 100%; transform: translateX(0px);}
+}
+
+.dev-section{
+   position: relative;
+   top: 150px;
+    margin-left: 100px;
+     opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+}
+.dev-section.appear{
+     opacity: 1;
+      transform: translateY(0);
+}
+.devIT{
+    position: relative;
+    font-size: 30px;
+    text-align: left;
+    font-family: "Ramabhadra", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+.devdesc{
+    position: relative;
+     font-family: "Cossette Texte", sans-serif;
+    font-size: 15px;
+    text-align: justify;
+    margin-top: 20px;
+    line-height: 1.6;
+      max-width: 400px;
+}
+.carousel {
+    position: relative;
+    top: -150px;
+    left: 50%;
+      overflow-x: auto;
+      display: flex;
+      gap: 20px;
+      padding-bottom: 20px;
+      max-width: 530px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+    opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+}
+.carousel.appear{
+    opacity: 1;
+      transform: translateY(0);
+}
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    min-width: 500px;
+  height: 60vh;
+  transition: all 0.5s linear;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .devs {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Ramabhadra", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    }
+
+.card-text {
+    font-size: 14px;
+    font-family: "Cossette Texte", sans-serif;
+    color: #666;
+    }
+
+footer{
+    background-color: #333;
+    color: white;
+    padding: 60px 20px 20px;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-section{
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3{
+    font-size: 20px;
+      font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-section p{
+    position: relative;
+    top: 0;
+    font-size: 14px;
+      font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.8;
+    margin: 10px 0;
+    color: #ddd;
+}
+
+.footer-section ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li{
+    margin: 8px 0;
+}
+
+.footer-section ul li a{
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+      font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 0;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover{
+    color: #fff;
+}
+
+.social-media{
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 18px;
+      font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover{
+    background-color: #777;
+}
+
+.footer-bottom{
+    text-align: center;
+    border-top: 1px solid #555;
+    margin-top: 30px;
+    padding-top: 20px;
+    color: #999;
+    font-size: 14px;
+      font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@media (max-width: 1024px){
+
+.header{
+    padding: 20px 40px;
+}
+
+.links{
+    gap: 20px;
+}
+
+a{
+    font-size: 16px;
+}
+
+.img-about{
+    left: 40px;
+    max-width: 320px;
+}
+
+.description{
+    left: 420px;
+    top: -250px;
+    max-width: 320px;
+    font-size: 14px;
+}
+
+.dev-section{
+    margin-left: 40px;
+}
+
+.carousel{
+    left: 48%;
+    max-width: 420px;
+}
+
+.card{
+    min-width: 400px;
+    height: 50vh;
+}
+
+.footer-container{
+    gap: 30px;
+}
+}
+
+
+
+@media (max-width: 768px){
+
+.header{
+padding: 15px 20px;
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+}
+.h1{
+width: 100%;
+text-align: center;
+font-size: 24px;
+}
+
+.links{
+flex-wrap: wrap;
+justify-content: center;
+gap: 10px;
+}
+
+a{
+font-size: 15px;
+padding: 5px;
+}
+
+.login-btn{
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.log-btn{
+font-size: 15px;
+padding: 8px 16px;
+}
+
+.container-about{
+padding-top: 120px;
+padding-bottom: 40px;
+text-align: center;
+}
+
+.container-about h1{
+font-size: 30px;
+}
+
+.img-about{
+position: static;
+display: block;
+margin: 20px auto;
+max-width: 300px;
+width: 90%;
+}
+
+.description{
+position: static;
+margin: 20px auto;
+max-width: 90%;
+text-align: center;
+font-size: 14px;
+line-height: 1.7;
+}
+
+.container-caro{
+padding: 40px 0;
+}
+
+.dev-section{
+position: static;
+margin: 0 auto 40px;
+text-align: center;
+width: 90%;
+}
+
+.devIT{
+text-align: center;
+font-size: 28px;
+}
+
+.devdesc{
+max-width: 100%;
+text-align: center;
+font-size: 14px;
+}
+
+.carousel{
+position: static;
+left: auto;
+top: auto;
+margin: 0 auto;
+width: 90%;
+max-width: 350px;
+overflow: hidden;
+}
+
+.card{
+min-width: 100%;
+height: auto;
+}
+
+.card .devs{
+height: 180px;
+}
+
+.card-content{
+padding: 18px;
+}
+
+.card-title{
+font-size: 18px;
+}
+
+.card-text{
+font-size: 14px;
+}
+
+footer{
+padding: 40px 20px 20px;
+}
+
+.footer-container{
+flex-direction: column;
+align-items: center;
+text-align: center;
+gap: 30px;
+}
+
+.footer-section{
+width: 100%;
+}
+
+.social-media{
+justify-content: center;
+}
+}
+
+
+
+@media (max-width: 480px){
+
+.header{
+padding: 10px;
+}
+
+.h1{
+font-size: 20px;
+}
+
+a{
+font-size: 13px;
+}
+
+.log-btn{
+font-size: 13px;
+padding: 6px 12px;
+}
+
+.container-about{
+padding-top: 110px;
+}
+
+.container-about h1{
+font-size: 24px;
+}
+
+.img-about{
+max-width: 240px;
+}
+
+.description{
+font-size: 13px;
+}
+
+.devIT{
+font-size: 22px;
+}
+
+.devdesc{
+font-size: 13px;
+}
+
+.carousel{
+max-width: 280px;
+}
+
+.card{
+min-width: 280px;
+}
+
+.card .devs{
+height: 140px;
+}
+
+.card-content{
+padding: 14px;
+}
+
+.card-title{
+font-size: 16px;
+}
+
+.card-text{
+font-size: 13px;
+}
+
+footer{
+padding: 30px 15px 15px;
+}
+
+.footer-section h3{
+font-size: 18px;
+}
+
+.footer-section p{
+font-size: 13px;
+}
+
+.footer-section ul li a{
+font-size: 13px;
+}
+
+.social-icon{
+width: 35px;
+height: 35px;
+font-size: 15px;
+}
+
+.footer-bottom{
+font-size: 12px;
+}
+
+}

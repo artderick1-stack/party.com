@@ -6,25 +6,123 @@
     <title>Party.com</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="bg">
-        <div class="title">
-        <h1 class="h1">PartyNeeds</h1>
-            </div>
-            <div class="links">
-            <a href="index.html">HOME</a>
-            <a href="index2.html">ABOUT US</a>
-            <a href="index3.html">CONTACT US</a>
-            <a href="index4.html">RENT</a>
-            </div>
-                <div class="login-btn">
-                    <button class="log-btn">Login</button>
-                </div>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Cossette+Texte&family=Ramabhadra&display=swap');
+</style>
 
-                <div class="search-bar">
-                    <input class="search" type="text">
-                </div>
-                <!--ADDEDDDDD-->
+
+<body>
+    <nav>
+        <div class="header">
+            <h1 class="h1">PartyNeeds</h1>
+            <div class="links">
+                <a href="index.html" style="color: yellow;">HOME</a>
+                <a href="index2.html">ABOUT US</a>
+                <a href="index3.html">CONTACT US</a>
+                <a href="index4.html">RENT</a>
+            </div>
+            <div class="login-btn">
+                <button class="log-btn" onclick="goToLogin()">Login</button>
+            </div>
+        </div>
+        <div class="bg">
+            <div class="tagline">
+                <h2 class="h2">Placeholder</h2>
+                <p>Welcome to PartyNeeds!</p>
+            </div>
+            <div class="s-container">
+                <form class="search-bar" action="#" method="get">
+                    <input type="search" name="q" placeholder="Search party rents...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
     </nav>
+
+    <!--Services-->
+   
+        <div class="title-service" id="pm1">
+        <h2 class="our-services">Our Services</h2>
+        </div>
+         <div class="services">
+        <div class="service-item">
+            <img class="card-img" src="tent.png" alt="Service 1">
+            <div class="service-content">
+                <h3>Tent Rental</h3>
+                <p class="desc">A portable shelter used for outdoor events, providing shade and protection from weather conditions.</p>
+            </div>
+        </div>
+        <div class="service-item">
+            <img class="card-img" src="chairs.png" alt="Service 2">
+            <div class="service-content">
+                <h3>Chair Rental</h3>
+                <p class="desc">Seating furniture designed to provide comfort and support for guests during gatherings or activities.</p>
+            </div>
+        </div>
+        <div class="service-item">
+            <img class="card-img" src="videoke.png" alt="Service 3">
+            <div class="service-content">
+                <h3>Videoke Rental</h3>
+                <p class="desc">An entertainment system that allows users to sing along to music with lyrics displayed on a screen, often used in parties and celebrations.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About PartyNeeds</h3>
+                <p>Your one-stop shop for all party rental needs. We provide high-quality equipment and services to make your events unforgettable.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index2.html">About Us</a></li>
+                    <li><a href="index3.html">Contact Us</a></li>
+                    <li><a href="index4.html">Rent</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: gmail@partyneeds.com</p>
+                <p>Phone: 09696969676767</p>
+                <p>Address: Langkiwa Binan Laguna</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="https://facebook.com" target="_blank" class="social-icon">f</a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon">𝕏</a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon">📷</a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon">in</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PartyNeeds. All rights reserved.</p>
+        </div>
+    </footer>
+
+
 </body>
+<script>
+    const fadeElement1 = document.querySelectorAll('.services');
+    const fadeElement2 = document.querySelectorAll('.title-service');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('appear');
+        }
+      });
+    });
+
+    fadeElement1.forEach(el => observer.observe(el));
+     fadeElement2.forEach(el => observer.observe(el));
+
+     function goToLogin() {
+        window.location.href = 'indexLogin.html';
+     }
+</script>
 </html>
