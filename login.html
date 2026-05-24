@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Login</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 350px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .logout {
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- LOGIN BOX -->
+<div class="container" id="loginBox">
+
+    <h2>Fake Login</h2>
+
+    <input type="text"
+           id="username"
+           placeholder="Username">
+
+    <input type="password"
+           id="password"
+           placeholder="Password">
+
+    <button onclick="login()">
+        Login
+    </button>
+
+    <p id="error" style="color:red;"></p>
+
+</div>
+
+
+<!-- ADMIN PAGE -->
+<div class="container hidden" id="adminPage">
+
+    <h2>Admin Dashboard</h2>
+
+    <p>Welcome Admin!</p>
+
+    <p>
+        You can manage the website here.
+    </p>
+
+    <button class="logout" onclick="logout()">
+        Logout
+    </button>
+
+</div>
+
+
+<!-- USER PAGE -->
+<div class="container hidden" id="userPage">
+
+    <h2>User Dashboard</h2>
+
+    <p>Welcome User!</p>
+
+    <p>
+        This page is only for users.
+    </p>
+
+    <button class="logout" onclick="logout()">
+        Logout
+    </button>
+
+</div>
+
+
+<script>
+
+function login() {
+
+    let username =
+        document.getElementById("username").value;
+
+    let password =
+        document.getElementById("password").value;
+
+    let error =
+        document.getElementById("error");
+
+
+    // ADMIN LOGIN
+    if (username === "admin" &&
+        password === "admin123") {
+
+        document.getElementById("loginBox")
+            .classList.add("hidden");
+
+        document.getElementById("adminPage")
+            .classList.remove("hidden");
+
+    }
+
+    // USER LOGIN
+    else if (username === "user" &&
+             password === "user123") {
+
+        document.getElementById("loginBox")
+            .classList.add("hidden");
+
+        document.getElementById("userPage")
+            .classList.remove("hidden");
+
+    }
+
+    // WRONG LOGIN
+    else {
+
+        error.innerHTML =
+            "Wrong username or password";
+
+    }
+
+}
+
+
+function logout() {
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
