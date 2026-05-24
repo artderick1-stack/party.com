@@ -105,12 +105,23 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <input type="checkbox" onclick="myclasa_nalang_ulit()">Show Password
             </div>
             <button type="submit" name="submit" class="login-button">Login</button>
         </form>
         <div class="footer-text">
-            <span>Don't have an account? <a href="#indexRegister.php">Sign up</a></span>
+            <span>Don't have an account? <a href="indexRegister.php">Sign up</a></span>
         </div>
     </div>
 </body>
+    <script>
+        function myclasa_nalang_ulit() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </html>

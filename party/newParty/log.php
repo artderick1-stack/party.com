@@ -92,36 +92,51 @@ if(isset($_POST['submit'])){
 
     $adminResult = mysqli_query($connection, $adminSql);
 
-   
-    if(mysqli_num_rows($adminResult) > 0){
-
-        echo '<script>alert("Welcome Admin!");</script>';
-        echo '<script>window.location.href="indexAdmin.php";</script>';
-
-    } else {
-
-       
-        $userSql = "SELECT * FROM userlog 
+     $userSql = "SELECT * FROM userlog 
                     WHERE usernames='$username' 
                     AND pass='$password'";
 
         $userResult = mysqli_query($connection, $userSql);
 
-       
-        if(mysqli_num_rows($userResult) > 0){
+    $queryUser = "SELECT * FROM users 
+                 WHERE username='$username' 
+                 AND password='$password'";
+    $sqlUsers = mysqli_query($connection, $queryUser);
 
-            echo '<script>alert("Login Successful!");</script>';
-            echo '<script>window.location.href="index.php";</script>';
 
-        } else {
+    if(mysqli_num_rows($adminResult) > 0){
 
-         
+        echo '<script>alert("Welcome Admin!");</script>';
+        echo '<script>window.location.href="indexAdmin.php";</script>';
+
+    } 
+    else if(mysqli_num_rows($userResult) < 0){
+
+        echo '<script>alert("Invalid username or password!");</script>';
+        echo '<script>window.location.href="indexLogin.php";</script>';
+    }
+
+    else if (mysqli_num_rows($userResult) > 0) {
+
+        echo '<script>alert("Login Successful!");</script>';
+        echo '<script>window.location.href="index.php";</script>';
+} 
+else if(mysqli_num_rows($userResult) < 0){
             echo '<script>alert("Invalid username or password!");</script>';
             echo '<script>window.location.href="indexLogin.php";</script>';
-        }
+        } 
+        else if(mysqli_num_rows($sqlUsers) > 0){
+
+        echo '<script>alert("Welcome User!");</script>';
+        echo '<script>window.location.href="index.php";</script>';
+
+    } else {
+        echo '<script>alert("Invalid username or password!");</script>';
+        echo '<script>window.location.href="indexLogin.php";</script>';
     }
-}
+    } 
+
 
 ?>
-?>
+
 
