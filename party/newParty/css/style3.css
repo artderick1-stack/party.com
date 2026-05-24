@@ -1,0 +1,508 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    z-index: 10;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.49);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7px);
+-webkit-backdrop-filter: blur(7px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.h1{
+    font-family: "Cossette Texte", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    color: black;
+     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+.links{
+    display: flex;
+    gap: 40px;
+}
+a{
+    text-decoration: none;
+    color: black;
+     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+     font-family: "Cossette Texte", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 20px;
+    padding: 10px;
+       transition: color 0.3s ease;
+     cursor: pointer;
+}
+a:hover{
+    color: yellow;
+      transition: color 0.3s ease;
+}
+.log-btn{
+    border-radius: 5px;
+    border: none;
+    background-color: gray;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.log-btn:hover{
+    background-color: rgb(42, 41, 41);
+     transition: 0.3s ease;
+
+}
+body {
+   margin: 0px;
+    padding: 0px;
+    background-color: aliceblue;
+}
+.section {
+     display: flex;
+    justify-content: space-between;
+    padding: 120px 20px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.container-1 {
+    width: 45%;
+    position: relative;
+    top: 20px;
+    left: 70px;
+}
+.title{
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: black;
+     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+     font-family: "Ramabhadra", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    animation: fade 0.5s ease;
+}
+.desc,.number,.address{
+    animation: fade 0.5s ease;
+}
+@keyframes fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.container-2 {
+    position: relative;
+    top: 40px;
+    left: 100px;
+    width: 46%;
+}
+
+form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.49);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: latefade 1s ease;
+}
+@keyframes latefade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+label{
+    color: black;
+      filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+input{
+    width: 200px;
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+footer{
+    background-color: #333;
+    color: white;
+    padding: 60px 20px 20px;
+    margin-top: 100px;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-section{
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3{
+     font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-section p{
+    position: relative;
+    top: 0;
+    font-size: 14px;
+     font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.8;
+    margin: 10px 0;
+    color: #ddd;
+}
+
+.footer-section ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li{
+    margin: 8px 0;
+}
+
+.footer-section ul li a{
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+     font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 0;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover{
+    color: #fff;
+}
+
+.social-media{
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover{
+    background-color: #777;
+}
+
+.footer-bottom{
+    text-align: center;
+    border-top: 1px solid #555;
+    margin-top: 30px;
+    padding-top: 20px;
+    color: #999;
+    font-size: 14px;
+     font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    overflow-x: hidden;
+}
+
+@media (max-width: 1024px){
+
+    .header{
+        padding: 20px 40px;
+    }
+
+    .links{
+        gap: 20px;
+    }
+
+    a{
+        font-size: 16px;
+    }
+
+    .section{
+        max-width: 100%;
+        padding: 140px 30px 80px;
+        gap: 40px;
+    }
+
+    .container-1{
+        left: 20px;
+        width: 45%;
+    }
+
+    .container-2{
+        left: 20px;
+        width: 50%;
+    }
+
+    input{
+        width: 100%;
+        max-width: 180px;
+    }
+
+    textarea{
+        width: 100%;
+    }
+
+    .footer-container{
+        gap: 30px;
+    }
+}
+
+
+
+@media (max-width: 768px){
+
+.header{
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.h1{
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.links{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+a{
+    font-size: 15px;
+    padding: 5px;
+}
+
+.login-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.log-btn{
+    font-size: 15px;
+    padding: 8px 16px;
+}
+
+.section{
+    flex-direction: column;
+    align-items: center;
+    padding: 130px 20px 60px;
+    gap: 40px;
+}
+
+.container-1{
+    position: static;
+    width: 100%;
+    text-align: center;
+}
+
+.container-2{
+    position: static;
+    width: 100%;
+}
+
+form{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+table{
+    width: 100%;
+}
+
+tr{
+    display: flex;
+    flex-direction: column;
+}
+
+td{
+    width: 100%;
+}
+
+input{
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+}
+
+textarea{
+    width: 100%;
+}
+
+button{
+    width: 100%;
+}
+
+.title{
+    font-size: 28px;
+}
+
+.desc,.number,.address{
+    font-size: 15px;
+}
+
+footer{
+    padding: 40px 20px 20px;
+}
+
+.footer-container{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.footer-section{
+    width: 100%;
+}
+
+.social-media{
+    justify-content: center;
+}
+}
+
+@media (max-width: 480px){
+
+.header{
+ padding: 10px;
+}
+
+.h1{
+    font-size: 20px;
+}
+
+a{
+    font-size: 13px;
+}
+
+.log-btn{
+    font-size: 13px;
+    padding: 6px 12px;
+}
+
+.section{
+    padding: 120px 15px 50px;
+}
+
+form{
+    padding: 15px;
+}
+
+.title{
+    font-size: 24px;
+}
+
+.desc,
+.number,
+.address{
+    font-size: 14px;
+}
+
+label{
+    font-size: 14px;
+}
+
+input,
+textarea{
+    font-size: 13px;
+}
+
+button{
+    font-size: 14px;
+    padding: 10px;
+}
+
+footer{
+    padding: 30px 15px 15px;
+}
+
+.footer-section h3{
+    font-size: 18px;
+}
+
+.footer-section p{
+    font-size: 13px;
+}
+
+.footer-section ul li a{
+    font-size: 13px;
+}
+
+.social-icon{
+    width: 35px;
+    height: 35px;
+    font-size: 15px;
+}
+
+.footer-bottom{
+    font-size: 12px;
+}
+}

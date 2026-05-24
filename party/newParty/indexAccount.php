@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+           background: aliceblue;
+            color: #111827;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.49);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            color: black;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+            font-size: 2rem;
+        }
+        .logout-btn {
+            border-radius: 5px;
+            border: none;
+            background-color: #4f46e5;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .logout-btn:hover {
+            background: #4338ca;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.49);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 24px;
+        }
+        .card h2 {
+            margin: 0 0 16px;
+            color: black;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+            font-size: 1.5rem;
+        }
+        .card p {
+            margin: 8px 0;
+            color: black;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+        }
+        .rent-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .rent-item h3 {
+            margin: 0 0 8px;
+            color: black;
+            filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .dashboard-container {
+                max-width: 100%;
+            }
+            
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                text-align: center;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .card {
+                padding: 16px;
+            }
+            
+            .card h2 {
+                font-size: 1.25rem;
+            }
+            
+            .logout-btn {
+                font-size: 14px;
+                padding: 8px 16px;
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.25rem;
+            }
+            
+            .card {
+                padding: 12px;
+            }
+            
+            .card h2 {
+                font-size: 1.1rem;
+            }
+            
+            .card p {
+                font-size: 0.9rem;
+            }
+            
+            .rent-item {
+                padding: 8px;
+            }
+            
+            .rent-item h3 {
+                font-size: 1rem;
+            }
+        }
+
+      
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.75rem;
+            }
+        }
+
+        
+        @media (min-width: 1201px) {
+            .dashboard-container {
+                max-width: 1400px;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>Welcome to Your Account Dashboard</h1>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>Account Information</h2>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Email:</strong> john.doe@example.com</p>
+                <p><strong>Address:</strong> 123 Party Street, Celebration City, CC 12345</p>
+            </div>
+            
+            <div class="card">
+                <h2>Rental Summary</h2>
+                <p><strong>Total Rentals:</strong> 5</p>
+                <p><strong>Active Rentals:</strong> 2</p>
+                <p><strong>Completed Rentals:</strong> 3</p>
+            </div>
+            
+            <div class="card">
+                <h2>Current Rentals</h2>
+                <div class="rent-item">
+                    <h3>Tent Rental - Event A</h3>
+                    <p>Quantity: 1</p>
+                    <p>Status: Active</p>
+                </div>
+                <div class="rent-item">
+                    <h3>Table Set - Birthday Party</h3>
+                    <p>Quantity: 4</p>
+                    <p>Status: Active</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Quick Actions</h2>
+                <button class="logout-btn" style="margin: 10px 0; width: 100%;">Rent New Items</button>
+                <button class="logout-btn" style="margin: 10px 0; width: 100%; background: #059669;">View History</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cossette+Texte&family=Ramabhadra&display=swap');
+</style>
+<body>
+
+<nav>
+        <div class="header">
+            <h1 class="h1">PartyNeeds</h1>
+            <div class="links">
+                <a href="index.php">HOME</a>
+                <a href="index2.php" style="color: yellow;">ABOUT US</a>
+                <a href="index3.php">CONTACT US</a>
+                <a href="index4.php">RENT</a>
+            </div>
+            <div class="login-btn">
+                 <button class="log-btn" onclick="goToLogin()">Login</button>
+            </div>
+        </div>
+</nav>
+
+  <div class="container-about">
+  <h1>About Us</h1>
+  <img class="img-about" src="about-img.png" alt="">
+  <p class="description">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  </div>
+  
+    <div class="container-caro">
+  <div class="dev-section">
+    <h1 class="devIT">Meet the Team</h1>
+    <p class="devdesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  </div>
+
+  
+  <div class="carousel">
+
+    <div class="card">
+      <img class="devs" src="person-icon.png" alt="Service 1">
+      <div class="card-content">
+        <div class="card-title">Dev 1</div>
+        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="devs" src="person-icon.png" alt="Service 2">
+      <div class="card-content">
+        <div class="card-title">Dev 2</div>
+        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="devs" src="person-icon.png" alt="Service 3">
+      <div class="card-content">
+        <div class="card-title">Dev 3</div>
+        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="devs" src="person-icon.png" alt="Service 4">
+      <div class="card-content">
+        <div class="card-title">Dev 4</div>
+        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About PartyNeeds</h3>
+                <p>Your one-stop shop for all party rental needs. We provide high-quality equipment and services to make your events unforgettable.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index2.html">About Us</a></li>
+                    <li><a href="index3.html">Contact Us</a></li>
+                    <li><a href="index4.html">Rent</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: gmail@partyneeds.com</p>
+                <p>Phone: 09696969676767</p>
+                <p>Address: Langkiwa Binan Laguna</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="https://facebook.com" target="_blank" class="social-icon">f</a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon">𝕏</a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon">📷</a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon">in</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PartyNeeds. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+<script>
+   const fadeElement1 = document.querySelectorAll('.dev-section');
+  const fadeElement2 = document.querySelectorAll('.carousel');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('appear');
+        }
+      });
+    });
+
+    fadeElement1.forEach(el => observer.observe(el));
+     fadeElement2.forEach(el => observer.observe(el));
+
+
+
+
+  const carouselItems = document.querySelectorAll(".card"); 
+let i = 1;
+
+setInterval(() => {
+// Accessing All the carousel Items
+ Array.from(carouselItems).forEach((item,index) => {
+
+   if(i < carouselItems.length){
+    item.style.transform = `translateX(-${i*103}%)`
+   }
+  })
+
+
+  if(i < carouselItems.length){
+    i++;
+  }
+  else{
+    i=0;
+  }
+},2000);
+
+      function goToLogin() {
+          window.location.href = 'indexLogin.html';
+      }
+</script>
+</html>
