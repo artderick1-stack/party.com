@@ -27,4 +27,22 @@
         echo '<script>window.location.href = "indexLogin.php";</script>';
     }
 
+    if(isset($_POST['submitorder'])){
+        $orderId = uniqid();
+        $customerName = $_POST['customer_name'];
+        $customerEmail = $_POST['customer_email'];
+        $customerPhone = $_POST['customer_phone'];
+        $product = $_POST['order'];
+        $quantity = $_POST['quantity'];
+        $status = $_POST['status'];
+        $paymentMethod = $_POST['payment'];
+        $delivery = $_POST['delivery_rate'];
+        $productPrice = $_POST['total_price'];
+
+        $queryAddOrder = "INSERT INTO `orders`(`customer_name`, `customer_email`, `customer_phone`, `product`, `quantity`, `status`, `payment_method`, `delivery_rate`, `product_price`) VALUES ('$customerName','$customerEmail','$customerPhone','$product','$quantity','$status','$paymentMethod','$delivery','$productPrice')";
+        $sqlAddOrder = mysqli_query($connection, $queryAddOrder);
+
+        echo '<script>alert("Order Placed Successfully!");</script>';
+        echo '<script>window.location.href = "index4.php";</script>';
+    }
 ?>

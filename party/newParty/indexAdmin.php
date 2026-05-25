@@ -18,9 +18,7 @@
             </div>
             <nav class="sidebar-nav">
                 <a href="#">Inventory</a>
-                <a href="#orders">Orders</a>
-                <a href="#categories">Categories</a>
-                <a href="#reports">Reports</a>
+                <a href="orders.php">Orders</a>
             </nav>
         </aside>
 
