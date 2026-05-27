@@ -24,7 +24,7 @@
         $sqlAddUser = mysqli_query($connection, $queryAddUser);
 
         echo '<script>alert("User Added Successfully! Now please Login.");</script>';
-        echo '<script>window.location.href = "indexLogin.php";</script>';
+        echo '<script>window.location.href = "index.php";</script>';
     }
 
     if(isset($_POST['submitorder'])){

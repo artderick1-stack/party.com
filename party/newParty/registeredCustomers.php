@@ -27,7 +27,14 @@ body{
     padding: 20px;
     color: #111827;
 }
-/* Layout Styles */
+.layout{
+    display: flex;
+    gap: 25px;
+    max-width: 1400px;
+    margin: auto;
+    align-items: flex-start;
+}
+/* Sidebar Styles */
 .sidebar{
     position: fixed;       
     top: 20px;
@@ -35,22 +42,29 @@ body{
     width: 260px;            
     height: calc(100vh - 40px); 
     padding: 25px;
-    overflow-y: auto; 
+    overflow-y: auto;      
     background: rgba(255,255,255,0.49);
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.15);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
     border: 1px solid rgba(255,255,255,0.3);
+    display: flex;
+    flex-direction: column;
 }
+
+/* HEADER */
 .sidebar-header{
     margin-bottom: 30px;
 }
+
 .sidebar-header h2{
     font-family: "Ramabhadra", sans-serif;
     margin-bottom: 20px;
     color: #111827;
 }
+
+/* button */
 .nav-button{
     display: inline-block;
     width: 100%;
@@ -68,6 +82,8 @@ body{
     background: #8781fa;
     color: white;
 }
+
+/* Sidebar Navigation */
 .sidebar-nav{
     display: flex;
     flex-direction: column;
@@ -99,18 +115,15 @@ body{
 }
 /* Main Content Styles */
 .container{
-    position: relative;
     width: 100%;
-    max-width: 1000px;
+    margin-left: 320px;
+    padding: 20px;
     background: rgba(255,255,255,0.49);
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(31,38,135,0.15);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
     border: 1px solid rgba(255,255,255,0.3);
-      margin-left: 320px;
-    padding: 20px;
-    padding-right: 90px;
     /* padding: 35px; */
     animation: fade 0.6s ease;
 }
@@ -135,41 +148,26 @@ body{
     color: #111827;
 }
 /* Table Styles */
-.table-wrapper{
-     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    margin-top: 20px;
-}
-.inventory-table{
-    min-width: 1400px;
-    border-collapse: collapse;
-    overflow: hidden;
-    border-radius: 18px;
-    margin-top: 20px;
-    background: rgba(255,255,255,0.35);
-    backdrop-filter: blur(8px);
-}
+.inventory-table,
 .inventory-table2{
-    width: 50%;
+    width: 100%;
     border-collapse: collapse;
     overflow: hidden;
     border-radius: 18px;
     margin-top: 20px;
+
     background: rgba(255,255,255,0.35);
     backdrop-filter: blur(8px);
 }
-
 
 .inventory-table th,
+.inventory-table td,
 .inventory-table2 th,
 .inventory-table2 td{
     padding: 16px;
     text-align: left;
 }
-.inventory-table2 td{
-    background: rgba(0, 252, 8, 0.35);
-}
+
 .inventory-table th{
     background: rgba(79,70,229,0.9);
     color: white;
@@ -224,6 +222,7 @@ p{
     color: #111827;
 }
 .stats{
+    background: rgba(0, 252, 8, 0.35);
     border-radius: 18px;
     margin: 30px;
 }
@@ -305,7 +304,9 @@ p{
     </style>
 </head>
 <body>
-        <!-- Sidebar Navigation -->
+    <!-- Layout Container -->
+    <div class="layout">
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h2>Navigation</h2>
@@ -313,82 +314,44 @@ p{
             </div>
             <nav class="sidebar-nav">
                 <a href="indexAdmin.php">Inventory</a>
-                <a href="orders.php" class="active">Orders</a>
-                <a href="registeredCustomers.php">Registered Users</a>
+                <a href="orders.php">Orders</a>
+                <a href="#" class="active">Registered Users</a>
             </nav>
         </aside>
-
-        <!-- Main Content Area -->
+        <!-- Main Content -->
         <div class="container">
-            <h1>Orders Dashboard</h1>
-            <p>Your customer orders management center</p>
-            <div class="stats">
-             <table class="inventory-table2">
-                <thead>
-                    <tr>
-                        <th>Number of Orders Registered</th>
-                        <th>Total Earnings</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   <?php 
-                        $querySales = "SELECT COUNT(*) AS order_count, 
-                                            SUM(product_price) AS total_sales 
-                                    FROM orders";
-
-                        $sqlSales = mysqli_query($connection, $querySales);
-                        $salesResults = mysqli_fetch_array($sqlSales);
-                        ?>
-
-                        <tr>
-                            <td><?php echo $salesResults['order_count']; ?></td>
-                            <td><?php echo "₱". number_format($salesResults['total_sales'], 2); ?></td>
-                        </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Orders Table -->
-        <div class="table-wrapper">
+            <h1>Registered Users</h1>
+            <p>Manage your registered users</p>
                <table class="inventory-table">
                 <thead>
                     <tr>
-                        <!-- Table headers for orders -->
-                        <th>Customer Name</th>
-                        <th>Customer Email</th>
-                        <th>Customer Phone</th>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Status</th>
-                        <th>Payment Method</th>
-                        <th>Delivery Rate</th>
-                        <th>Product Price</th>
+                        <th>Username</th>
+                        <th>User Email</th>
+                        <th>User Phone</th>
+                        <th>User Password</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Fetch and display orders from the database -->
-                    <?php while($results = mysqli_fetch_array($sqlOrders)) { ?>
+                    <!-- Fetch and display registered user data from the database -->
+                    <?php while($results = mysqli_fetch_array($sqlUsers)) { ?>
                     <tr>
-                        <td><?php echo $results['customer_name']; ?></td>
-                        <td><?php echo $results['customer_email']; ?></td>
-                        <td><?php echo $results['customer_phone']; ?></td>
-                        <td><?php echo $results['product']; ?></td>
-                        <td><?php echo $results['quantity']; ?></td>
-                        <td><?php echo $results['status']; ?></td>
-                        <td><?php echo $results['payment_method']; ?></td>
-                        <td><?php echo $results['delivery_rate']; ?></td>
-                        <td><?php echo $results['product_price']; ?></td>
+                        <td><?php echo $results['username']; ?></td>
+                        <td><?php echo $results['user_email']; ?></td>
+                        <td><?php echo $results['phone']; ?></td>
+                        <td><?php echo $results['password']; ?></td>
                             <td>
                             <form action="delete.php" method="post">
-                                    <input type="submit" value="Delete" name="deleteOrder">
-                                    <input type="hidden" name="DeleteId" value="<?php echo $results['order_id']; ?>">
+                                    <input type="submit" value="Delete" name="deleteUser">
+                                    <input type="hidden" name="DeleteId" value="<?php echo $results['user_id']; ?>">
                                 </form>
                             </td>
                     </tr>
                             <?php }?>
                     </tbody>
                 </table>
+        </div>
+    </div>
 
 </body>
 </html>

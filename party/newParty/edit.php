@@ -47,9 +47,6 @@
             <h1>Bookstore Inventory</h1>
             <p></p>
             <form class="" action="/newParty/edit.php" method="post">
-            <!-- <label for="bookId">BookId</label>
-            <input type="text" placeholder="Enter book ID" name="bookId"> <br> -->
-
              <label for="Id">Id</label>
             <input type="text" name="updateId" value="<?php echo $editId; ?>"> <br>
 

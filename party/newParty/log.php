@@ -1,83 +1,4 @@
 <?php
-   
-    // if(isset($_POST['submit'])){
-    //     $Istrue = true;
-    //    $Istrue = $sqlUsers;
-    //     if($_POST['username' & 'password'] != $Istrue){
-    //    echo '<script>window.location.href = "index.php";</script>';
-    //     }
-    //     else{
-    //        echo '<script>alert("Your account is not valid!");</script>';
-    //     echo '<script>window.location.href = "indexLogin.php";</script>';
-    //     }
-    // }
-
-// include "databases.php";
-
-// if(isset($_POST['submit'])){
-
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-
-//     $sql = "SELECT * FROM userlog WHERE usernames = $username";
-
-//     $stmt = mysqli_prepare($connection, $sql);
-
-//     mysqli_stmt_bind_param($stmt, "s", $username);
-
-//     mysqli_stmt_execute($stmt);
-
-//     $result = mysqli_stmt_get_result($stmt);
-
-//     if($row = mysqli_fetch_assoc($result)){
-
-//         // Verify hashed password
-//         if(password_verify($password, $row['password'])){
-
-//             echo '<script>alert("Login Successful!");</script>';
-//             echo '<script>window.location.href="index.php";</script>';
-
-//         } else {
-
-//             echo '<script>alert("Invalid Password!");</script>';
-//         }
-
-//     } else {
-
-//         echo '<script>alert("User not found!");</script>';
-//            echo '<script>window.location.href="indexLogin.php";</script>';
-
-//     }
-// }
-
-// include "databases.php";
-
-// if(isset($_POST['submit'])){
-
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-
-//     $useradmin = $_POST['username'];
-//     $passadmin = $_POST['password'];
-
-//     $sql = "SELECT * FROM userlog WHERE usernames='$username' AND pass='$password'";
-//     $newsql = "SELECT * FROM admins WHERE admin_username='$useradmin' AND admin_password='$passadmin'";
-//     $result = mysqli_query($connection, $sql);
-
-//     if(mysqli_num_rows($result) > 0){
-
-//         // Login success
-//         echo '<script>alert("Login Successful!");</script>';
-//         echo '<script>window.location.href="index.php";</script>';
-
-//     } else {
-
-//         // Login failed
-//         echo '<script>alert("Invalid username or password!");</script>';
-//         echo '<script>window.location.href="indexLogin.php";</script>';
-//     }
-// }
-
 include "databases.php";
 
 if(isset($_POST['submit'])){
@@ -113,26 +34,26 @@ if(isset($_POST['submit'])){
     else if(mysqli_num_rows($userResult) < 0){
 
         echo '<script>alert("Invalid username or password!");</script>';
-        echo '<script>window.location.href="indexLogin.php";</script>';
+        echo '<script>window.location.href="index.php";</script>';
     }
 
     else if (mysqli_num_rows($userResult) > 0) {
 
         echo '<script>alert("Login Successful!");</script>';
-        echo '<script>window.location.href="index.php";</script>';
+        echo '<script>window.location.href="index1.php";</script>';
 } 
 else if(mysqli_num_rows($userResult) < 0){
             echo '<script>alert("Invalid username or password!");</script>';
-            echo '<script>window.location.href="indexLogin.php";</script>';
+            echo '<script>window.location.href="index.php";</script>';
         } 
         else if(mysqli_num_rows($sqlUsers) > 0){
 
         echo '<script>alert("Welcome User!");</script>';
-        echo '<script>window.location.href="index.php";</script>';
+        echo '<script>window.location.href="index1.php";</script>';
 
     } else {
         echo '<script>alert("Invalid username or password!");</script>';
-        echo '<script>window.location.href="indexLogin.php";</script>';
+        echo '<script>window.location.href="index.php";</script>';
     }
     } 
 

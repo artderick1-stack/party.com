@@ -1,119 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="validation.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <style>
-    html,body{
-      height:100%;
+    @import url('https://fonts.googleapis.com/css2?family=Cossette+Texte&family=Ramabhadra&display=swap');
+  /* Global Styles */
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
+
     body{
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:#f5f7fa
+      padding:20px;
+      font-family:Arial, Helvetica, sans-serif;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('g.png') center/cover no-repeat;
     }
-    .wrapper{
-      width:360px;
-      background:#fff;
-      padding:24px;
-      border-radius:8px;
-      box-shadow:0 8px 24px rgba(20,30,60,.08);
-      text-align:left
+  /* Register Card */
+    .register-card{
+      width:min(420px, 95vw);
+
+      background: rgba(255, 255, 255, 0.49);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      padding:32px;
+      animation:fadeIn 0.6s ease;
     }
-    .wrapper h1{
-      margin:0 0 12px;
-      font-size:22px;
-      text-align:center
+/* Animation */
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
-    form div{
+
+    .register-card h1{
+      text-align:center;
+      margin-bottom:12px;
+
+      color:white;
+      font-size:2rem;
+
+      font-family: "Ramabhadra", sans-serif;
+
+      filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+    }
+
+    .register-card .subtitle{
+      text-align:center;
+      margin-bottom:28px;
+      color:white;
+      font-size:0.95rem;
+      font-family: "Cossette Texte", sans-serif;
+      filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+    }
+
+    /* Forms */
+    .form-group{
+      margin-bottom:18px;
+    }
+
+    .form-group label{
+      display:block;
+      margin-bottom:8px;
+
+      color:white;
+      font-size:0.95rem;
+
+      font-family: "Cossette Texte", sans-serif;
+
+      filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+    }
+
+    .form-group input{
+      width:100%;
+      padding:12px 14px;
+
+      border:1px solid #d1d5db;
+      border-radius:12px;
+
+      font-size:1rem;
+      outline:none;
+
+      transition:0.3s ease;
+    }
+
+    .form-group input:focus{
+      border-color:#0ea5e9;
+      box-shadow:0 0 0 4px rgba(14,165,233,0.12);
+    }
+
+    .show-password{
+      margin-top:10px;
+
       display:flex;
       align-items:center;
-      gap:10px;
-      margin:10px 0
+      gap:8px;
+
+      color:white;
+      font-size:0.9rem;
+
+      font-family: "Cossette Texte", sans-serif;
+
+      filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
     }
-    form label{width:36px;
-    height:36px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#6b7280
-  }
-    form input{
-      flex:1;padding:10px;
-      border:1px solid #e5e7eb;
-      border-radius:6px;
-      font-size:14px
+
+    .show-password input{
+      width:auto;
+      cursor:pointer;
     }
-    button[type=submit]{
+
+    .signup-button{
       width:100%;
-      padding:10px;
-      margin-top:8px;
-      border:0;
-      background:#2563eb;
-      color:#fff;border-radius:6px;
-      font-weight:600;
-      cursor:pointer
+      padding:14px;
+
+      border:none;
+      border-radius:12px;
+
+      background:#4f46e5;
+      color:white;
+
+      font-size:1rem;
+      cursor:pointer;
+
+      transition:0.3s ease;
+
+      margin-top:10px;
+
+      filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
     }
-    p{font-size:14px;
-    color:#374151;
-    text-align:center;
-}
+
+    .signup-button:hover{
+      background:#4338ca;
+      transform:translateY(-2px);
+    }
+    /* Footer */
+    .footer-text{
+      margin-top:20px;
+      text-align:center;
+
+      color:white;
+      font-size:0.92rem;
+
+      font-family: "Cossette Texte", sans-serif;
+
+      filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+    }
+
+    .footer-text a{
+      color:#0ea5e9;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .footer-text a:hover{
+      text-decoration:underline;
+    }
+
     #error-message{
-      color:#b91c1c;
-    text-align:center;
-    min-height:18px;
-  }
+      text-align:center;
+      color:#ffb4b4;
+      margin-bottom:15px;
+      min-height:18px;
+
+      font-family: "Cossette Texte", sans-serif;
+    }
+
+    @media (max-width:480px){
+
+      .register-card{
+        padding:24px 20px;
+      }
+
+      .register-card h1{
+        font-size:1.7rem;
+      }
+
+      .form-group input{
+        padding:11px 12px;
+        font-size:0.95rem;
+      }
+
+      .signup-button{
+        padding:12px;
+        font-size:0.95rem;
+      }
+    }
+
   </style>
 </head>
+
 <body>
-  <div class="wrapper">
-    <h1>Signup</h1>
+  <!-- Register Card -->
+  <div class="register-card">
+    <h1>Sign Up</h1>
+    <p class="subtitle">Sign up to continue to PartyNeeds.</p>
+
     <p id="error-message"></p>
+    <!-- Forms -->
     <form id="form" action="add.php" method="post">
-      <div>
-        <label for="username-input">
-          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-        </label>
-        <input type="text" name="username" id="username-input" placeholder="Username" required>
+
+      <div class="form-group">
+        <label for="username-input">Username</label>
+        <input type="text" name="username"  id="username-input" placeholder="Enter username"required>
       </div>
-      <div>
-        <label for="email-input">
-          <span>@</span>
-        </label>
-        <input type="email" name="email" id="email-input" placeholder="Email address" required>
+
+      <div class="form-group">
+        <label for="email-input">Email</label>
+        <input type="email" name="email" id="email-input" placeholder="Enter email address" required>
       </div>
-      <div>
-        <label for="phone-input">
-          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M686-146 556-276q-18-18-41-23t-47 5q-44 17-96 17-35 0-63.5-10T185-119q-35-12-60-37t-37-60Q66-296 66-343q0-52 17-95t17-47l119-119q12-12 29-14t30 6l92 46q16 8 26.5 22.5T468-552l-45 45q-10 10-11 24t5 26l51 126q12 31 34 53l126 51q14 5 26 5t24-11l45-45q14 14 22.5 26.5T850-311l46 92q10 17 6 30t-14 29L686-146Z"/></svg>
-        </label>
-        <input type="tel" name="number" id="phone-input" placeholder="Phone number" pattern="[0-9+\-() ]{7,}" required>
+
+      <div class="form-group">
+        <label for="phone-input">Phone Number</label>
+        <input type="tel" name="number" id="phone-input" placeholder="Enter phone number" pattern="[0-9+\-() ]{7,}"required>
       </div>
-        <div>
-        <label for="password-input">
-          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-        </label>
-        <input type="password" name="password" id="password-input" placeholder="Password" required>
-        <input type="checkbox" onclick="myclasa()">Show Password
+
+      <div class="form-group">
+        <label for="password-input">Password</label>
+        <input type="password" name="password" id="password-input" placeholder="Enter password" required >
+      
+        <div class="show-password">
+          <input type="checkbox" onclick="togglePassword()">
+          <span>Show Password</span>
+        </div>
       </div>
-      <button type="submit" name="signup">Signup</button>
+    <!-- Sign Up Button -->
+      <button type="submit" name="signup" class="signup-button"> Sign Up</button>
     </form>
-    <p>Already have an Account? <a href="indexLogin.php">login</a> </p>
+    <div class="footer-text">
+      Already have an account?
+      <a href="index.php">Login</a>
+    </div>
   </div>
-</body>
+  <!-- Javascript -->
   <script>
-    function myclasa() {
+    function togglePassword() {
       var x = document.getElementById("password-input");
+
       if (x.type === "password") {
         x.type = "text";
       } else {
         x.type = "password";
       }
     }
-    </script>
+  </script>
+
+</body>
 </html>

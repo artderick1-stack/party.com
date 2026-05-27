@@ -6,5 +6,8 @@
 
     $queryOrders = "SELECT * FROM orders"; 
     $sqlOrders = mysqli_query($connection, $queryOrders);
+
+    $queryUsers = "SELECT * FROM users";
+    $sqlUsers = mysqli_query($connection, $queryUsers);
 ?>
 
