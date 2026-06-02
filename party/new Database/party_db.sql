@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2026 at 05:26 PM
+-- Generation Time: Jun 02, 2026 at 05:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,6 +63,35 @@ INSERT INTO `inventory` (`inventory_id`, `product`, `product_quantity`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `customer_name` varchar(100) DEFAULT NULL,
+  `customer_email` varchar(100) DEFAULT NULL,
+  `customer_phone` varchar(100) DEFAULT NULL,
+  `product` varchar(100) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `payment_method` varchar(100) DEFAULT NULL,
+  `delivery_rate` varchar(100) DEFAULT NULL,
+  `product_price` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `customer_name`, `customer_email`, `customer_phone`, `product`, `quantity`, `status`, `payment_method`, `delivery_rate`, `product_price`) VALUES
+(1, 'mark', 'm@gmail', '00540', 'tent', 1, 'confirmed', 'online', '1', 500),
+(2, 'art', 'a@dkf', '0999', 'videoke', 2, 'confirmed', 'cash', '0.01', 1400),
+(4, 'Kaiz', 'k@gmail', '09999', 'chairs', 20, 'confirmed', 'cash', '100', 3100),
+(5, 'kk', 'k@kk', '099993', 'tent', 20, 'confirmed', 'card', '10', 10010);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `userlog`
 --
 
@@ -101,7 +130,7 @@ INSERT INTO `users` (`user_id`, `username`, `user_email`, `phone`, `password`) V
 (1, 'khyran123', 'k@123', '034045', 'password123'),
 (6, 'mark', 'm@rk', '080808', 'nice'),
 (8, 'khyyyyy', 'k@clasanalangata', 'weh?17', 'oonotsure'),
-(9, 'KhyranOreo', 'k@hyyy', '34457678', 'khy');
+(10, 'anthon810', 'wdedfnvkdgbj@ftrgjt', '38485485t854', 'zars81024');
 
 --
 -- Indexes for dumped tables
@@ -120,6 +149,12 @@ ALTER TABLE `inventory`
   ADD PRIMARY KEY (`inventory_id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
 -- Indexes for table `userlog`
 --
 ALTER TABLE `userlog`
@@ -136,10 +171,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
