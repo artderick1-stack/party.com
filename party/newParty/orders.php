@@ -211,13 +211,21 @@ body{
     cursor: pointer;
 }
 
-.inventory-table td input[value="Delete"]{
+.inventory-table td input[value="Delete"], input[value="Edit Status"]{
     background: #dc2626;
 }
 
 .inventory-table td input[value="Delete"]:hover
 {
     background: #b91c1c;
+}
+.inventory-table td input[value="Edit Status"]{
+    background: #23cc34;
+}
+
+.inventory-table td input[value="Edit Status"]:hover
+{
+    background: #2ba111;
 }
 p{
     padding-left: 30px;
@@ -380,6 +388,12 @@ p{
                         <td><?php echo $results['delivery_rate']; ?></td>
                         <td><?php echo $results['product_price']; ?></td>
                             <td>
+                                  <form action="editStatus.php" method="post">
+                                    <input type="hidden" name="order_id" value="<?php echo $results['order_id']; ?>">
+                                  <input type="hidden" name="status" value="<?= htmlspecialchars($results['status']) ?>">
+                                    <input type="submit" value="Edit Status" name="editStatus" class="edit-btn">
+                                </form>
+                
                             <form action="delete.php" method="post">
                                     <input type="submit" value="Delete" name="deleteOrder">
                                     <input type="hidden" name="DeleteId" value="<?php echo $results['order_id']; ?>">

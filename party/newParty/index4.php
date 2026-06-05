@@ -2,21 +2,6 @@
 include 'databases.php';
 $success = false;
 $data = ['customer_name'=>'','customer_email'=>'','customer_phone'=>'','order'=>'','quantity'=>'','status'=>'','payment'=>'','delivery_rate'=>'','total_price'=>''];
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data['customer_name'] = trim($_POST['customer_name'] ?? '');
-    $data['customer_email'] = trim($_POST['customer_email'] ?? '');
-    $data['customer_phone'] = trim($_POST['customer_phone'] ?? '');
-    $data['order'] = trim($_POST['order'] ?? '');
-    $data['quantity'] = trim($_POST['quantity'] ?? '');
-    $data['status'] = trim($_POST['status'] ?? '');
-    $data['payment'] = trim($_POST['payment'] ?? '');
-    $data['delivery_rate'] = trim($_POST['delivery_rate'] ?? '');
-    $data['total_price'] = trim($_POST['total_price'] ?? '');
-
-    foreach ($data as $k => $v) {
-        $data[$k] = htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,14 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 *{
     box-sizing: border-box;
 }
-
 html, body{
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 
 body{
-    margin: 0;
-    padding: 0;
     background: aliceblue;
 }
 /* Header Styles */
@@ -103,20 +87,21 @@ body{
     background: rgb(42,41,41);
 }
 /* Form Section Styles */
+
+/* Form Section */
 .form-section{
-    min-height: 100vh;
-    padding: 150px 20px 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    padding: 140px 20px 50px;
 }
 
 .form-container{
+    max-width: 900px;
     width: 100%;
-    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .order-card{
+    width: 100%;
     background: rgba(255,255,255,0.55);
     border-radius: 20px;
     padding: 40px;
@@ -129,18 +114,6 @@ body{
 
     animation: fadeUp 0.8s ease;
 }
-/* Animations */
-@keyframes fadeUp{
-    from{
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .order-title{
     text-align: center;
     margin-bottom: 35px;
@@ -188,9 +161,13 @@ textarea.form-control{
 }
 /* Footer Styles */
 footer{
+    width: 100%;
     background-color: #333;
     color: white;
     padding: 60px 20px 20px;
+    margin-top: 50px;
+    display: block;
+    clear: both;
 }
 
 .footer-container{
@@ -384,7 +361,9 @@ footer{
 }
     </style>
 </head>
-        <!--navbar  -->
+     
+     <body>
+           <!--navbar  -->
      <nav>
         <div class="header">
             <h1 class="h1">PartyNeeds</h1>
@@ -399,7 +378,6 @@ footer{
             </div>
         </div>
 </nav>
-     <body>
         <!-- Form Section -->
     <div class="form-section">
         <div class="form-container">
@@ -434,26 +412,22 @@ footer{
                     <label class="form-label">Select Product</label>
                     <select name="order" id="orderSelect" class="form-select" required onchange="updatePrice()">
                       <option value="">Choose Product...</option>
-                      <option value="chairs" <?= $data['order']=='chairs'? 'selected':'' ?>>Chairs (per 20 set - $150)</option>
-                      <option value="tent" <?= $data['order']=='tent'? 'selected':'' ?>>Tent - $500</option>
-                      <option value="videoke" <?= $data['order']=='videoke'? 'selected':'' ?>>Videoke - $700</option>
+                      <option value="chairs" <?= $data['order']=='chairs'? 'selected':'' ?>>Chairs (per 20 set - ₱150)</option>
+                      <option value="tent" <?= $data['order']=='tent'? 'selected':'' ?>>Tent - ₱500</option>
+                      <option value="videoke" <?= $data['order']=='videoke'? 'selected':'' ?>>Videoke - ₱700</option>
                     </select>
                   </div>
                 </div>
-                <!-- Quantity and Status -->
+                <!-- Quantity -->
                 <div class="row">
                   <div class="col-md-6 mb-3">
                     <label class="form-label">Quantity</label>
                     <input type="number" name="quantity" id="quantity" class="form-control" min="1" required value="<?= $data['quantity'] ?>" onchange="updatePrice()" oninput="updatePrice()">
                   </div>
+                  <!-- Status -->
                   <div class="col-md-6 mb-3">
-                    <label class="form-label">Status</label>
-                    <select name="status" class="form-select" required>
-                      <option value="" <?= $data['status']==''? 'selected':'' ?>>Choose...</option>
-                      <option value="pending" <?= $data['status']=='pending'? 'selected':'' ?>>Pending</option>
-                      <option value="confirmed" <?= $data['status']=='confirmed'? 'selected':'' ?>>Confirmed</option>
-                      <option value="cancelled" <?= $data['status']=='cancelled'? 'selected':'' ?>>Cancelled</option>
-                    </select>
+                    <input type="hidden" name="status" value="pending">
+                    <input type="hidden" name="delivery_rate" value="80">
                   </div>
                 </div>
                     <!-- Payment Method -->
@@ -467,20 +441,11 @@ footer{
                       <option value="online" <?= $data['payment']=='online'? 'selected':'' ?>>Online</option>
                     </select>
                   </div>
-                  <!-- Delivery Rate -->
-                  <div class="col-md-6 mb-3">
-                    <label class="form-label">Delivery Rate</label>
-                    <div class="input-group">
-                      <span class="input-group-text">$</span>
-                      <input type="number" step="0.01" min="0" name="delivery_rate" id="deliveryRate" class="form-control" required value="<?= $data['delivery_rate'] ?>" onchange="updatePrice()" oninput="updatePrice()">
-                    </div>
-                  </div>
-                </div>
                     <!-- Total Price -->
                 <div class="mb-3">
-                  <label class="form-label">Total Price</label>
+                  <label class="form-label">Total Price + 80 for Fixed Delivery Rate.</label>
                   <div class="input-group">
-                    <span class="input-group-text">$</span>
+                    <span class="input-group-text">₱</span>
                     <input type="number" step="0.01" id="totalPrice" name="total_price" class="form-control" readonly value="<?= $data['total_price'] ?>">
                   </div>
                 </div>
@@ -493,7 +458,7 @@ footer{
           </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer -
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -528,7 +493,7 @@ footer{
         <div class="footer-bottom">
             <p>&copy; 2026 PartyNeeds. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> -->
            <!-- ScriptBootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Javascript -->
@@ -542,12 +507,11 @@ footer{
       function updatePrice() {
         const orderSelect = document.getElementById('orderSelect');
         const quantity = document.getElementById('quantity');
-        const deliveryRate = document.getElementById('deliveryRate');
         const totalPrice = document.getElementById('totalPrice');
 
         const selectedProduct = orderSelect.value;
         const qty = parseInt(quantity.value) || 0;
-        const delivery = parseFloat(deliveryRate.value) || 0;
+        const delivery = 80;
 
         if (selectedProduct && qty > 0) {
           const productPrice = prices[selectedProduct];

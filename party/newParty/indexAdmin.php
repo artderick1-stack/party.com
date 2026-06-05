@@ -385,7 +385,7 @@ body{
                         <td>
                             <!-- Action buttons for editing and deleting inventory items -->
                             <div class="action-buttons">
-                                <form action="/newParty/edit.php" method="post">
+                                <form action="edit.php" method="post">
 
                                     <input type="hidden" name="upId" value="<?php echo $results['inventory_id']; ?>">
                                     <input type="hidden" name="upproduct" value="<?php echo $results['product']; ?>">

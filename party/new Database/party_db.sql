@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2026 at 05:43 AM
+-- Generation Time: Jun 05, 2026 at 08:46 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -84,10 +84,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_name`, `customer_email`, `customer_phone`, `product`, `quantity`, `status`, `payment_method`, `delivery_rate`, `product_price`) VALUES
-(1, 'mark', 'm@gmail', '00540', 'tent', 1, 'confirmed', 'online', '1', 500),
-(2, 'art', 'a@dkf', '0999', 'videoke', 2, 'confirmed', 'cash', '0.01', 1400),
-(4, 'Kaiz', 'k@gmail', '09999', 'chairs', 20, 'confirmed', 'cash', '100', 3100),
-(5, 'kk', 'k@kk', '099993', 'tent', 20, 'confirmed', 'card', '10', 10010);
+(11, 'eofrgfo', 'sDs@skds', '099', 'chairs', 10, 'confirmed', 'cash', '80', 1580),
+(12, 'dionela', 'dionela@marilag', '09944959', 'tent', 100, 'pending', 'card', '80', 50080);
 
 -- --------------------------------------------------------
 
@@ -174,7 +172,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
